@@ -13,7 +13,7 @@
         {
             foreach (var entity in entities)
             {
-                yield return new CarModel(entity.Key, GetParameters(entity).ToList());
+                yield return new CarModel(entity.Identifier, GetParameters(entity).ToList());
             }
         }
 
@@ -27,7 +27,7 @@
         {
             return new Car
             {
-                Key = model.Key,
+                Identifier = model.Key,
                 Brand = model.Parameters.OfType<Brand>().First().Value,
                 Model = model.Parameters.OfType<Model>().First().Value,
                 Speed = model.Parameters.OfType<Speed>().First().Value,

@@ -19,13 +19,13 @@
             _converter = converter;
         }
 
-        public Task<IEnumerable<CarModel>> GetAsync(params Guid[] keys)
+        public Task<IEnumerable<CarModel>> GetAsync(params Guid[] identifiers)
         {
             var set = _dbContext.Set<Car>();
 
-            if (keys.Any())
+            if (identifiers.Any())
             {
-                var entities = set.Where(item => keys.Any(key => item.Key.Equals(key))).ToList();
+                var entities = set.Where(item => identifiers.Any(identifier => item.Identifier.Equals(identifier))).ToList();
                 var models = _converter.Convert(entities);
                 return Task.FromResult(models);
             }
@@ -49,7 +49,7 @@
         public async Task DeleteAsync(IEnumerable<CarModel> items)
         {
             var set = _dbContext.Set<Car>().ToList();
-            var originals = set.Where(item => items.Any(car => car.Key.Equals(item.Key))).ToList();
+            var originals = set.Where(item => items.Any(car => car.Key.Equals(item.Identifier))).ToList();
             _dbContext.RemoveRange(originals);
             await _dbContext.SaveChangesAsync();
         }
