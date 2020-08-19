@@ -1,2 +1,2 @@
 # SemanticDataForFrontend
-Example project to run a full stack business application with EFCore, REST WebService, Semantic Types and SignalR
+Example project to run a full stack business application with EFCore, REST WebService, SignalR and Semantic Types for Frontend.
