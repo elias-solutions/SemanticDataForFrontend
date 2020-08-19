@@ -5,6 +5,6 @@
 
     internal class EntityBase
     {
-        [Key] public Guid Key { get; set; }
+        [Key] public Guid Identifier { get; set; }
     }
 }

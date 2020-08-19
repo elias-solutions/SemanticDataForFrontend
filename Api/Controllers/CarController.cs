@@ -17,8 +17,6 @@
         public CarController(Repository<CarModel> repo)
         {
             _repo = repo;
-
-
         }
 
         [HttpGet]
