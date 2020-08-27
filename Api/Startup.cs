@@ -75,6 +75,7 @@ namespace Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<CarHub>("/api/v1/CarHub");
             });
 
             app.UseMiddleware<ErrorHandlingMiddleware>();
@@ -85,9 +86,6 @@ namespace Api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
                 //c.SwaggerEndpoint("/swagger/v2/swagger.json", "V2");
             });
-
-            app.UseSignalR(routes => routes.MapHub<CarHub>("/api/v1/CarHub"));
-
         }
     }
 }
