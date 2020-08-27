@@ -5,7 +5,7 @@
 
     class Program
     {
-        private const string URL = "http://localhost:5000/api/v1/";
+        private const string URL = "https://localhost:5000/api/v1/";
 
         static async Task Main(string[] args)
         {
